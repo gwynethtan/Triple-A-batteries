@@ -9,9 +9,9 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-/*
+
 public class UIInteractions : MonoBehaviour
-{
+{/*
     /// <summary>
     /// This will store all the gameobject that will be shown upon taking the clinic form
     /// </summary>
@@ -24,7 +24,6 @@ public class UIInteractions : MonoBehaviour
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None; // Player can access cursor
         Time.timeScale = 0f;
-    }
+    }*/
 }
 
-*/
