@@ -11,11 +11,16 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
-{
+{/*
     /// <summary>
     /// Define total aura earned
     /// </summary>
     public float auraTotal = 100f;
+
+    /// <summary>
+    /// Define total coins earned
+    /// </summary>
+    public int coinTotal = 0;
 
     /// <summary>
     /// Define rejected audio sound
@@ -46,6 +51,11 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI scoreText;
 
     /// <summary>
+    /// This will store the text object that will be stored on screen for player coins
+    /// </summary>
+    public TextMeshProUGUI scoreCoinText;
+
+    /// <summary>
     /// Explains to player how to interact with game object
     /// </summary>
     public TextMeshProUGUI interactionText;
@@ -56,12 +66,12 @@ public class GameManager : MonoBehaviour
     public GameObject sidePanel;
 
     /// <summary>
-    /// This will store all the text object that will be stored on screen once the player is accepted
+    /// This will store all the text object that will be stored on screen once the player is accepted MAY NOT USE
     /// </summary>
     public GameObject acceptPanel;
 
     /// <summary>
-    /// This will store all the text object that will be stored on screen once the player is rejected
+    /// This will store all the text object that will be stored on screen once the player is rejected MAY NOT USE
     /// </summary>
     public GameObject rejectPanel;
 
@@ -183,6 +193,29 @@ public class GameManager : MonoBehaviour
     }
 
     /// <summary>
+    /// Decreases player total coins
+    /// </summary>
+    /// <param name="totalCoins"></param>
+    public void LoseCoin(float loseCoinAmount)
+    { 
+      if ((coinTotal-loseCoinAmount)>=0) // Ensure that the total coins do not hit below 0 when player purhases something
+        {
+            auraTotal -= loseAuraAmount;
+            scoreText.text = auraTotal.ToString();
+        }
+    }
+    
+    /// <summary>
+    /// Increases player total coins 
+    /// </summary>
+    /// <param name="coinTotal"></param>
+    public void GainCoin(float gainCoinAmount)
+    {
+        coinTotal += gainCoinAmount;
+        scoreCoinText.text = coinTotal.ToString();
+    }
+
+    /// <summary>
     /// Increases player aura
     /// </summary>
     /// <param name="healingAmount"></param>
@@ -230,4 +263,5 @@ public class GameManager : MonoBehaviour
         //Debug.Log("InteractiveText current settings: "+active);
         rejectPanel.gameObject.SetActive(true); // Sets active according to given boolean
     }
+*/
 }
