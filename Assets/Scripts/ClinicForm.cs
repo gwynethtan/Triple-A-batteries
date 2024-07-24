@@ -23,6 +23,11 @@ public class ClinicForm : MonoBehaviour
     private TextMeshProUGUI feedbackClinicForm;
 
     /// <summary>
+    /// This will store all the text object that will be stored on screen once the player is rejected MAY NOT USE
+    /// </summary>
+    public GameObject clinicForm;
+
+    /// <summary>
     /// List of all profiles
     /// </summary>
     private List<Profile> profiles;
@@ -130,6 +135,7 @@ public class ClinicForm : MonoBehaviour
                 feedbackClinicForm.text = $"Programming profile {input} into robot..."; // Confirms that name can be programmed into robot
                 feedbackClinicForm.color = Color.green;
                 profileChosen = profiles[number-1]; // Minus one as indexes starts with 0
+                clinicForm.SetActive(false);
             }
 
             else //Integer is out of range
