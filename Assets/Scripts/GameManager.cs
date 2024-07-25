@@ -100,7 +100,12 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// The notification sprite.
     /// </summary>
-    public GameObject notificationBox;
+    public GameObject notificationPrefab;
+
+    /// <summary>
+    /// The notification parent spawner.
+    /// </summary>
+    public Transform notificationParent;
 
     /// <summary>
     /// Defines GameManager throughout all scripts
@@ -288,10 +293,23 @@ public class GameManager : MonoBehaviour
     /// <param name="description"></param>
     public void Notify(string notification, string description)
     {
-        titleText.text = notification.ToString();
-        descText.text = description.ToString();
-        notificationBox.SetActive(true);
-        Invoke("HideNotification", 4);
+        GameObject newNotification = Instantiate(notificationPrefab, notificationParent);
+
+        Text titleText = newNotification.transform.Find("NotificationTitle").GetComponent<Text>();
+        Text descText = newNotification.transform.Find("NotificationDesc").GetComponent<Text>();
+
+        titleText.text = notification;
+        descText.text = description;
+
+        newNotification.SetActive(true);
+
+        StartCoroutine(HideNotification(newNotification, 4));
+    }
+
+    private IEnumerator HideNotification(GameObject notification, float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Destroy(notification);
     }
     */
 }
