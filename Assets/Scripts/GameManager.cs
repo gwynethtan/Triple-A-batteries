@@ -12,6 +12,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {/*
+
+
     /// <summary>
     /// Define total aura earned
     /// </summary>
@@ -84,6 +86,21 @@ public class GameManager : MonoBehaviour
     /// List for collectibles user currently posesses
     /// </summary>
     public static List<string> userCollectibles = new List<string>();
+
+    /// <summary>
+    /// Title for the broadcasted notification.
+    /// </summary>
+    public TextMeshProUGUI titleText;
+
+    /// <summary>
+    /// Description for the broadcasted notification.
+    /// </summary>
+    public TextMeshProUGUI descText;
+
+    /// <summary>
+    /// The notification sprite.
+    /// </summary>
+    public GameObject notificationBox;
 
     /// <summary>
     /// Defines GameManager throughout all scripts
@@ -263,5 +280,18 @@ public class GameManager : MonoBehaviour
         //Debug.Log("InteractiveText current settings: "+active);
         rejectPanel.gameObject.SetActive(true); // Sets active according to given boolean
     }
-*/
+
+    /// <summary>
+    /// Allows for spontaneous notification to the player at any time for any event.
+    /// </summary>
+    /// <param name="notification"></param>
+    /// <param name="description"></param>
+    public void Notify(string notification, string description)
+    {
+        titleText.text = notification.ToString();
+        descText.text = description.ToString();
+        notificationBox.SetActive(true);
+        Invoke("HideNotification", 4);
+    }
+    */
 }
