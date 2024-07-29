@@ -16,7 +16,7 @@ public class Poop : Collectible
     private void OnCollisionEnter(Collision collision)
     {
         GameManager.instance.LoseAura(Random.Range(5.0f, 15.0f));
-        GameManager.instance.Notify("You Stepped on Poop!", "Your Aura has been deducted.")
+        GameManager.instance.Notify("You Stepped on Poop!", "Your Aura has been deducted.");
         GameManager.AddCollectible("Poop");
         Destroy(gameObject);
     }
